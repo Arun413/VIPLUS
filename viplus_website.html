@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIPLUS Chemicals and Solutions FZE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&family=Exo+2:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #04111f;
+    --dark: #060e1a;
+    --blue: #0a6ebd;
+    --cyan: #00d4ff;
+    --gold: #f0a500;
+    --light: #e8f4fd;
+    --mid: #7ab8d9;
+    --glass: rgba(10,110,189,0.08);
+    --border: rgba(0,212,255,0.18);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--light);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ─── CANVAS BACKGROUND ─── */
+  #bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(4,17,31,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.18em;
+    color: var(--cyan);
+    text-shadow: 0 0 24px rgba(0,212,255,0.5);
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--mid);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: var(--cyan);
+    text-shadow: 0 0 12px rgba(0,212,255,0.6);
+  }
+
+  .nav-cta {
+    padding: 0.55rem 1.6rem;
+    border: 1px solid var(--cyan);
+    border-radius: 2px;
+    color: var(--cyan) !important;
+    transition: background 0.3s, box-shadow 0.3s !important;
+  }
+
+  .nav-cta:hover {
+    background: rgba(0,212,255,0.12) !important;
+    box-shadow: 0 0 24px rgba(0,212,255,0.3) !important;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+    animation-delay: 0.2s;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.4s;
+  }
+
+  .hero-title .line1 {
+    display: block;
+    color: #fff;
+    text-shadow: 0 0 60px rgba(0,212,255,0.15);
+  }
+
+  .hero-title .line2 {
+    display: block;
+    background: linear-gradient(90deg, var(--cyan), var(--blue), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: textShift 5s linear infinite, fadeUp 0.9s ease both;
+    animation-delay: 0s, 0.4s;
+  }
+
+  @keyframes textShift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .hero-sub {
+    margin-top: 1.6rem;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    color: var(--mid);
+    letter-spacing: 0.12em;
+    max-width: 680px;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.6s;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 3rem;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.8s;
+  }
+
+  .btn-primary {
+    padding: 0.85rem 2.4rem;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 0 30px rgba(0,212,255,0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 50px rgba(0,212,255,0.5);
+  }
+
+  .btn-outline {
+    padding: 0.85rem 2.4rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--light);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--cyan);
+    background: rgba(0,212,255,0.06);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 4rem;
+    margin-top: 5rem;
+    animation: fadeUp 1s ease both;
+    animation-delay: 1s;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--cyan);
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(0,212,255,0.4);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--mid);
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  .stat-divider {
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--border), transparent);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SCROLL INDICATOR ─── */
+  .scroll-ind {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    animation: fadeUp 1s ease both, bob 2s ease infinite;
+    animation-delay: 1.4s, 0s;
+    color: var(--mid);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--cyan), transparent);
+  }
+
+  @keyframes bob {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border-left: 2px solid var(--gold);
+    padding-left: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    color: var(--mid);
+    font-weight: 300;
+    font-size: 1.05rem;
+    max-width: 560px;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+    height: 440px;
+  }
+
+  .about-card {
+    position: absolute;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+  }
+
+  .about-card.main {
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(135deg, rgba(10,110,189,0.15), rgba(0,212,255,0.05));
+    overflow: hidden;
+  }
+
+  .about-card.main::before {
+    content: 'ISO 9001:2015';
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    border: 1px solid var(--gold);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+  }
+
+  .about-molecule {
+    font-size: 8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    opacity: 0.06;
+    animation: rotateSlow 20s linear infinite;
+  }
+
+  @keyframes rotateSlow {
+    from { transform: translate(-50%,-60%) rotate(0deg); }
+    to { transform: translate(-50%,-60%) rotate(360deg); }
+  }
+
+  .about-card.float {
+    width: 180px;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    text-align: center;
+    border-color: rgba(240,165,0,0.3);
+    background: rgba(240,165,0,0.06);
+    animation: floatCard 4s ease infinite;
+  }
+
+  @keyframes floatCard {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .float-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .float-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+    text-transform: uppercase;
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.4rem;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    cursor: default;
+  }
+
+  .feature-item:hover {
+    border-color: rgba(0,212,255,0.4);
+    background: rgba(0,212,255,0.06);
+    transform: translateX(6px);
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 14px rgba(0,212,255,0.3);
+  }
+
+  .feature-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #fff;
+  }
+
+  .feature-text span {
+    font-size: 0.8rem;
+    color: var(--mid);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── PRODUCTS ─── */
+  #products {
+    text-align: center;
+  }
+
+  #products .section-desc {
+    margin: 0 auto;
+    text-align: left;
+    max-width: 640px;
+  }
+
+  .products-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+    text-align: left;
+  }
+
+  .category-card {
+    position: relative;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    overflow: hidden;
+    cursor: default;
+    transition: border-color 0.4s, transform 0.3s, box-shadow 0.4s;
+  }
+
+  .category-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .category-card:hover {
+    border-color: rgba(0,212,255,0.35);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,20,50,0.5), 0 0 40px rgba(0,212,255,0.06);
+  }
+
+  .category-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .cat-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .cat-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    color: var(--cyan);
+    margin-bottom: 1.2rem;
+  }
+
+  .cat-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .cat-items li {
+    font-size: 0.82rem;
+    color: var(--mid);
+    letter-spacing: 0.05em;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .cat-items li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-size: 0.7rem;
+  }
+
+  .cat-count {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: rgba(0,212,255,0.07);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ─── APPLICATIONS STRIP ─── */
+  #applications {
+    background: linear-gradient(135deg, rgba(10,110,189,0.1), rgba(0,212,255,0.03));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 4rem;
+  }
+
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .app-card {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: rgba(4,17,31,0.6);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+
+  .app-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    border-color: rgba(0,212,255,0.35);
+  }
+
+  .app-icon {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(0,212,255,0.3));
+  }
+
+  .app-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+
+  .app-desc {
+    font-size: 0.78rem;
+    color: var(--mid);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-wrap {
+    overflow: hidden;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(0,212,255,0.02);
+    position: relative;
+    z-index: 1;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+  }
+
+  .marquee-item {
+    white-space: nowrap;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--mid);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .marquee-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 6px var(--cyan);
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: border-color 0.3s;
+  }
+
+  .contact-item:hover { border-color: rgba(0,212,255,0.35); }
+
+  .contact-item-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .contact-item-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-item-val {
+    font-size: 0.95rem;
+    color: var(--light);
+    letter-spacing: 0.05em;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+    text-transform: uppercase;
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    background: rgba(10,110,189,0.06);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.8rem 1rem;
+    color: var(--light);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+  }
+
+  .form-field select option { background: var(--dark); }
+
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 2px rgba(0,212,255,0.1);
+  }
+
+  .form-field textarea { resize: vertical; min-height: 120px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 4rem 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    color: var(--cyan);
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(122,184,217,0.5);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-certs {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--mid);
+  }
+
+  .cert-badge {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(240,165,0,0.3);
+    border-radius: 2px;
+    color: var(--gold);
+  }
+
+  /* ─── REVEAL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
+    margin: 1rem 0 2rem;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Animated particle background -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">VI<span>PLUS</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#applications">Applications</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge">ISO 9001:2015 Certified &nbsp;·&nbsp; Sharjah UAE</div>
+  <h1 class="hero-title">
+    <span class="line1">VIPLUS</span>
+    <span class="line2">CHEMICAL SOLUTIONS</span>
+  </h1>
+  <p class="hero-sub">Advanced oilfield chemicals and specialty solutions engineered for the most demanding drilling, production, and reservoir applications.</p>
+  <div class="hero-actions">
+    <a href="#products" class="btn-primary">Explore Products</a>
+    <a href="#contact" class="btn-outline">Request Quote</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">100<span style="font-size:1.8rem;color:var(--gold)">+</span></div>
+      <div class="stat-label">Products</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Categories</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">UAE</div>
+      <div class="stat-label">Free Zone</div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marquee">
+    <!-- items injected by JS -->
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left reveal">
+    <div class="about-visual">
+      <div class="about-card main">
+        <div class="about-molecule">⬡</div>
+        <div style="position:relative;z-index:1">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.06em;color:#fff;margin-bottom:0.5rem;">Al Hamirya Free Zone</div>
+          <div style="font-size:0.85rem;color:var(--mid);letter-spacing:0.1em;">Sharjah, United Arab Emirates</div>
+        </div>
+      </div>
+      <div class="about-card float">
+        <div class="float-num">9001</div>
+        <div class="float-label">ISO Certified</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-right reveal">
+    <div class="section-tag">Who We Are</div>
+    <h2 class="section-title">Precision Chemistry<br>For Industry</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">VIPLUS Chemicals and Solutions FZE delivers comprehensive oilfield chemical solutions from our base in Sharjah UAE — serving drilling contractors, operators, and service companies across the region and beyond.</p>
+
+    <div class="about-features">
+      <div class="feature-item">
+        <div class="feature-icon">🔬</div>
+        <div class="feature-text">
+          <strong>Full-Spectrum Product Range</strong>
+          <span>Filtration control, viscosifiers, corrosion inhibitors, OBM & NAF systems</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⚗️</div>
+        <div class="feature-text">
+          <strong>Nano Technology Products</strong>
+          <span>Cutting-edge nano-silica, nano-graphene, and nano-inhibitor solutions</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🌡️</div>
+        <div class="feature-text">
+          <strong>HTHP Specialists</strong>
+          <span>Synthetic polymers and co-polymers rated for >400°F conditions</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">
+          <strong>ISO 9001:2015 Certified</strong>
+          <span>License No. 36979 · VAT ID: 10481406180000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-header reveal">
+    <div class="section-tag">Our Portfolio</div>
+    <h2 class="section-title">Product Categories</h2>
+    <div class="section-divider" style="margin:1rem auto 1.5rem;"></div>
+    <p class="section-desc">From wellbore stability to reservoir enhancement — every product engineered for performance.</p>
+  </div>
+
+  <div class="categories-grid" id="cat-grid">
+    <!-- Injected by JS -->
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section id="applications">
+  <div class="reveal">
+    <div class="section-tag">Where We Operate</div>
+    <h2 class="section-title">Industry Applications</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="apps-grid">
+    <div class="app-card reveal">
+      <span class="app-icon">🛢️</span>
+      <div class="app-name">Drilling Fluids</div>
+      <p class="app-desc">Water-based, oil-based, and synthetic mud systems with complete additive packages.</p>
+    </div>
+    <div class="app-card reveal">
+      <span class="app-icon">⚙️</span>
+      <div class="app-name">Production Chemicals</div>
+      <p class="app-desc">Corrosion inhibition, biocides, and scale management for production systems.</p>
+    </div>
+    <div class="app-card reveal">
+      <span class="app-icon">🌊</span>
+      <div class="app-name">Completion & Workover</div>
+      <p class="app-desc">Brine systems, breaker chemicals, and milling fluid products.</p>
+    </div>
+    <div class="app-card reveal">
+      <span class="app-icon">🔩</span>
+      <div class="app-name">Reservoir Enhancement</div>
+      <p class="app-desc">Nano-technology solutions and wettability modifiers for improved recovery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Contact Us</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Reach our team for product inquiries, technical support, or custom formulations.</p>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-item-icon">📞</span>
+        <div>
+          <div class="contact-item-label">Phone</div>
+          <div class="contact-item-val">+971 5474-61787</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-icon">✉️</span>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-val">info@vipluss.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-icon">🌐</span>
+        <div>
+          <div class="contact-item-label">Website</div>
+          <div class="contact-item-val">www.vipluss.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-icon">📍</span>
+        <div>
+          <div class="contact-item-label">Address</div>
+          <div class="contact-item-val">Al Hamirya Free Zone, Sharjah UAE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="section-tag">Send a Message</div>
+    <h2 class="section-title">Request a Quote</h2>
+    <div class="section-divider"></div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label>Company</label>
+          <input type="text" placeholder="Company name">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" placeholder="you@company.com">
+        </div>
+        <div class="form-field">
+          <label>Phone</label>
+          <input type="tel" placeholder="+1 000 000 0000">
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Product Category</label>
+        <select>
+          <option value="">Select category...</option>
+          <option>Filtration Control Additives</option>
+          <option>Viscosifiers</option>
+          <option>Corrosion Inhibitors</option>
+          <option>Biocides / Scavengers</option>
+          <option>Shale Stabilizers</option>
+          <option>Lubricants</option>
+          <option>Lost Circulation Materials</option>
+          <option>OBM Products</option>
+          <option>NAF/RDF System Products</option>
+          <option>Brines</option>
+          <option>Nano Technology Products</option>
+          <option>Commercial Chemicals</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Message</label>
+        <textarea placeholder="Describe your requirements..."></textarea>
+      </div>
+      <button class="btn-primary" style="width:fit-content;" onclick="alert('Thank you! We will contact you shortly.')">Send Inquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">VI<span>PLUS</span> <span style="font-size:0.9rem;color:var(--mid);letter-spacing:0.1em;font-family:'Rajdhani',sans-serif;font-weight:300;">Chemicals & Solutions FZE</span></div>
+  <div class="footer-copy">© 2025 VIPLUS Chemicals and Solutions FZE. All rights reserved.</div>
+  <div class="footer-certs">
+    <span class="cert-badge">ISO 9001:2015</span>
+    <span class="cert-badge">License #36979</span>
+  </div>
+</footer>
+
+<script>
+// ─── PARTICLE CANVAS ───
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.r = Math.random() * 1.5 + 0.3;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.alpha = Math.random() * 0.5 + 0.1;
+    this.color = Math.random() > 0.5 ? '0,212,255' : '10,110,189';
+  }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${this.color},${this.alpha})`;
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < 180; i++) particles.push(new Particle());
+
+function drawLines() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 100) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = `rgba(0,212,255,${0.06 * (1 - dist/100)})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, W, H);
+  // deep bg gradient
+  const grad = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)/1.2);
+  grad.addColorStop(0, 'rgba(10,40,80,0.4)');
+  grad.addColorStop(1, 'rgba(4,10,20,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+  particles.forEach(p => { p.update(); p.draw(); });
+  drawLines();
+  requestAnimationFrame(animate);
+}
+animate();
+
+// ─── MARQUEE ───
+const marqueeItems = [
+  'Filtration Control', 'Viscosifiers', 'Corrosion Inhibitors',
+  'Biocides & Scavengers', 'Shale Stabilizers', 'Lubricants',
+  'Lost Circulation Materials', 'OBM Products', 'NAF / RDF Systems',
+  'Brines', 'Nano Technology', 'Specialty Chemicals', 'Milling Fluids',
+  'HTHP Systems', 'Breaker Chemicals', 'Commercial Chemicals'
+];
+
+const track = document.getElementById('marquee');
+const doubled = [...marqueeItems, ...marqueeItems];
+doubled.forEach(item => {
+  track.innerHTML += `<span class="marquee-item"><span class="marquee-dot"></span>${item}</span>`;
+});
+
+// ─── CATEGORIES ───
+const categories = [
+  { icon: '🧪', title: 'Filtration Control', count: '9', items: ['Drilling Starch', 'Carboxymethylated Starch', 'Polyanionic Cellulose LV/HV', 'CMC LVT / HVT', 'Synthetic HT Polymers', 'Resinated Lignite'] },
+  { icon: '🌀', title: 'Viscosifiers', count: '7', items: ['Xanthan Polymer DS / Clarified', 'Xanthan Gum Liquid', 'Guar Gum', 'HEC Powder / Liquid', 'Bentonite Drilling Grade', 'Bentonite OCMA'] },
+  { icon: '🛡️', title: 'Corrosion Inhibitors', count: '5', items: ['Packer Fluid Inhibitor', 'Drilling Fluid Inhibitor', 'Corrosion Inhibitor COB', 'Reservoir Inhibitor', 'Organic Acid Inhibitor'] },
+  { icon: '🦠', title: 'Biocides / Scavengers', count: '7', items: ['Bactericide Triazine Based', 'Bactericide Amine Based', 'Glutaraldehyde Biocide', 'O₂ Scavengers (Erythorbate)', 'O₂ Scavengers (Sulphite)', 'H₂S Scavenger (Triazine)'] },
+  { icon: '⛏️', title: 'Shale Stabilizers', count: '11', items: ['Clouding Glycol LC / MC / HC', 'Sodium Silicate Liquid', 'Potassium Silicate Liquid', 'Sulphonated Asphalt', 'PHPA Liquid / HMW / LMW', 'Polyamine'] },
+  { icon: '🔧', title: 'Lubricants', count: '3', items: ['High Performance Ester Lubricant (Mono-Valent Brine)', 'Ester Based Lubricant', 'Phosphate Based Lubricant'] },
+  { icon: '🪨', title: 'Lost Circulation Materials', count: '9', items: ['Cellulose Fibre C/M/F', 'Acid Soluble Fibre', 'Walnut Shells', 'Mica', 'Resilient Graphite', 'Cross-linking Polymer LCMs', 'Marble Grades'] },
+  { icon: '🛢️', title: 'OBM Products', count: '7', items: ['Primary / Secondary Emulsifier', 'Single Shot Emulsifier', 'Organophilic Clay', 'Rheology Modifier (OBM)', 'Filtration Control (OBM)', 'Thinner (OBM)'] },
+  { icon: '🌡️', title: 'NAF / RDF Systems', count: '12', items: ['One-Stop Emulsifier Pkg (≤300°F)', 'One-Stop Emulsifier Pkg (>300°F)', 'HT Emulsifier (>400°F)', 'HT Fluid Loss (>400°F)', 'Treated Hectorite', 'Lubricant for NAF'] },
+  { icon: '💧', title: 'Brines', count: '5', items: ['Potassium Formate 1.57 SG', 'Sodium Formate 1.32 SG', 'Zinc Bromide 2.3 SG', 'Cesium Formate', 'Heavy Brine >15ppg'] },
+  { icon: '⚡', title: 'Nano Technology', count: '5', items: ['Nano-silica Shale Stabiliser', 'Nano-inhibitors for Shale', 'Nano-graphene Lubricant', 'Nano-size Synthetic Polymer', 'Nanoscopic Surfactant-Solvent'] },
+  { icon: '🧬', title: 'HTHP Speciality', count: '7', items: ['Synthetic HT Polymer 350°F', 'Synthetic Co-polymer >400°F', 'HT Viscosifier (>400°F)', 'HT Viscosifier + FL Control', 'HT Stable Polymer Package', 'CFL', 'HT Thinner'] },
+];
+
+const grid = document.getElementById('cat-grid');
+categories.forEach((cat, i) => {
+  const delay = (i % 3) * 0.1;
+  const items = cat.items.slice(0, 5).map(it => `<li>${it}</li>`).join('');
+  grid.innerHTML += `
+    <div class="category-card reveal" style="transition-delay:${delay}s">
+      <div class="cat-count">${cat.count}</div>
+      <span class="cat-icon">${cat.icon}</span>
+      <div class="cat-title">${cat.title}</div>
+      <ul class="cat-items">${items}${cat.items.length > 5 ? `<li style="color:var(--blue)">+${cat.items.length-5} more...</li>` : ''}</ul>
+    </div>`;
+});
+
+// ─── SCROLL REVEAL ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), 60);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// ─── COUNTER ANIMATION ───
+function animateCount(el, target, suffix = '') {
+  let start = 0;
+  const step = target / 60;
+  const id = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target + suffix; clearInterval(id); return; }
+    el.textContent = Math.floor(start) + suffix;
+  }, 16);
+}
+</script>
+</body>
+</html>
