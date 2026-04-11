@@ -1,23 +1,16 @@
+/* ════════════════════════════════════════
+   VCHEM — CSS VARIABLES & RESET
+════════════════════════════════════════ */
 :root {
-    /* ── NEW PALETTE: Light Green + Light Blue ── */
     --dark: #030d0a;
-    /* very deep teal-black background          */
     --navy: #041510;
-    /* secondary dark                            */
     --green: #00e676;
-    /* primary accent — vivid spring green       */
     --teal: #26c6da;
-    /* secondary accent — light cyan-teal        */
     --lime: #b2ff59;
-    /* highlight — lime green for glow effects   */
     --sky: #80deea;
-    /* soft sky blue for body text accents       */
     --gold: #ffd54f;
-    /* warm amber — CTA / badges                 */
     --light: #e0faf0;
-    /* near-white with green tint                */
     --mid: #80cbc4;
-    /* muted teal for secondary text             */
     --glass: rgba(0, 230, 118, 0.06);
     --border: rgba(0, 230, 118, 0.20);
     --border2: rgba(38, 198, 218, 0.18);
@@ -42,7 +35,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ── CHEMISTRY CANVAS ── */
 #bg-canvas {
     position: fixed;
     top: 0;
@@ -53,7 +45,7 @@ body {
     pointer-events: none;
 }
 
-/* ══════════ NAV ══════════ */
+/* ════════ NAV ════════ */
 nav {
     position: fixed;
     top: 0;
@@ -64,7 +56,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 4rem;
-    background: rgba(3, 13, 10, 0.94);
+    background: rgba(3, 13, 10, .94);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
 }
@@ -72,13 +64,51 @@ nav {
 .nav-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    letter-spacing: 0.18em;
+    letter-spacing: .18em;
     color: var(--green);
-    text-shadow: 0 0 28px rgba(0, 230, 118, 0.55);
+    text-shadow: 0 0 28px rgba(0, 230, 118, .55);
 }
 
 .nav-logo span {
     color: var(--teal);
+}
+
+.nav-tagline {
+    font-size: .6rem;
+    letter-spacing: .18em;
+    color: var(--mid);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-top: .1rem;
+}
+
+.nav-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo images */
+.nav-logo-img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.hero-logo-img {
+    height: clamp(120px, 18vw, 200px);
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 1.6rem;
+    animation: fadeUp .7s ease both .05s;
+    filter: drop-shadow(0 0 28px rgba(0, 230, 118, .25));
+}
+
+.footer-logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .nav-links {
@@ -114,7 +144,6 @@ nav {
     background: rgba(0, 230, 118, .1) !important;
 }
 
-/* hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -149,7 +178,7 @@ nav {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(3, 13, 10, 0.98);
+    background: rgba(3, 13, 10, .98);
     backdrop-filter: blur(20px);
     z-index: 199;
     flex-direction: column;
@@ -175,7 +204,7 @@ nav {
     color: var(--green);
 }
 
-/* ══════════ HERO ══════════ */
+/* ════════ HERO ════════ */
 #hero {
     position: relative;
     z-index: 1;
@@ -197,8 +226,8 @@ nav {
     border: 1px solid var(--border);
     padding: .4rem 1.2rem;
     border-radius: 100px;
-    font-size: .75rem;
-    letter-spacing: .2em;
+    font-size: .72rem;
+    letter-spacing: .18em;
     color: var(--green);
     text-transform: uppercase;
     margin-bottom: 1.8rem;
@@ -231,8 +260,8 @@ nav {
 
 .hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 10vw, 9rem);
-    line-height: .9;
+    font-size: clamp(3.2rem, 10vw, 9.5rem);
+    line-height: .88;
     letter-spacing: .04em;
     animation: fadeUp .9s ease both .4s;
 }
@@ -265,13 +294,18 @@ nav {
 
 .hero-sub {
     margin-top: 1.4rem;
-    font-size: clamp(.88rem, 2vw, 1.2rem);
+    font-size: clamp(.9rem, 2vw, 1.2rem);
     font-weight: 300;
     color: var(--mid);
-    letter-spacing: .08em;
-    max-width: 640px;
+    letter-spacing: .07em;
+    max-width: 660px;
     line-height: 1.65;
     animation: fadeUp 1s ease both .6s;
+}
+
+.hero-sub strong {
+    color: var(--green);
+    font-weight: 600;
 }
 
 .hero-actions {
@@ -304,6 +338,12 @@ nav {
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 55px rgba(0, 230, 118, .55);
+}
+
+.btn-primary:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .btn-outline {
@@ -408,7 +448,7 @@ nav {
     }
 }
 
-/* ══════════ MARQUEE ══════════ */
+/* ════════ MARQUEE ════════ */
 .marquee-wrap {
     overflow: hidden;
     padding: 1.8rem 0;
@@ -456,7 +496,7 @@ nav {
     }
 }
 
-/* ══════════ SECTIONS ══════════ */
+/* ════════ SECTIONS ════════ */
 section {
     position: relative;
     z-index: 1;
@@ -498,7 +538,7 @@ section {
     margin: .8rem 0 1.8rem;
 }
 
-/* ══════════ ABOUT ══════════ */
+/* ════════ ABOUT ════════ */
 #about {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -530,12 +570,12 @@ section {
 }
 
 .about-card.main::before {
-    content: 'ISO 9001:2015';
+    content: 'MANUFACTURER & TRADER';
     position: absolute;
     top: 1.2rem;
     right: 1.2rem;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
+    font-size: .78rem;
     color: var(--gold);
     letter-spacing: .15em;
     border: 1px solid var(--gold);
@@ -544,14 +584,13 @@ section {
 }
 
 .about-molecule {
-    font-size: 7rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -60%);
-    opacity: .05;
-    animation: rotateSlow 20s linear infinite;
-    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes rotateSlow {
@@ -588,9 +627,9 @@ section {
 
 .float-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     color: var(--gold);
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .float-label {
@@ -650,7 +689,7 @@ section {
     color: var(--mid);
 }
 
-/* ══════════ PRODUCTS ══════════ */
+/* ════════ PRODUCTS ════════ */
 #products {
     text-align: center;
 }
@@ -678,7 +717,7 @@ section {
     background: var(--glass);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 1.8rem;
+    padding: 1.8rem 1.8rem 3.2rem;
     overflow: hidden;
     cursor: pointer;
     transition: border-color .4s, transform .3s, box-shadow .4s;
@@ -698,7 +737,7 @@ section {
 }
 
 .category-card:hover {
-    border-color: rgba(0, 230, 118, .45);
+    border-color: rgba(0, 230, 118, .4);
     transform: translateY(-6px);
     box-shadow: 0 20px 50px rgba(0, 10, 5, .6), 0 0 30px rgba(0, 230, 118, .06);
 }
@@ -719,9 +758,6 @@ section {
     letter-spacing: .15em;
     color: rgba(0, 230, 118, .35);
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: .3rem;
     transition: color .3s;
 }
 
@@ -730,9 +766,13 @@ section {
 }
 
 .cat-icon {
-    font-size: 1.8rem;
+    width: 28px;
+    height: 28px;
     margin-bottom: .8rem;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal);
 }
 
 .cat-title {
@@ -792,7 +832,7 @@ section {
 }
 
 .cat-hidden.shown {
-    display: block;
+    display: list-item;
 }
 
 .cat-count {
@@ -805,7 +845,7 @@ section {
     line-height: 1;
 }
 
-/* ══════════ APPLICATIONS ══════════ */
+/* ════════ APPLICATIONS ════════ */
 #applications {
     background: linear-gradient(135deg, rgba(0, 180, 80, .06), rgba(38, 198, 218, .04));
     border-top: 1px solid var(--border);
@@ -870,10 +910,14 @@ section {
 }
 
 .app-icon {
-    font-size: 2.4rem;
-    margin-bottom: .8rem;
-    display: block;
-    filter: drop-shadow(0 0 12px rgba(0, 230, 118, .4));
+    width: 48px;
+    height: 48px;
+    margin: 0 auto .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    filter: drop-shadow(0 0 12px rgba(0, 230, 118, .35));
 }
 
 .app-name {
@@ -892,7 +936,7 @@ section {
     margin-bottom: .5rem;
 }
 
-/* ══════════ CONTACT ══════════ */
+/* ════════ CONTACT ════════ */
 #contact {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -924,9 +968,13 @@ section {
 }
 
 .contact-item-icon {
-    font-size: 1.2rem;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
     margin-top: .1rem;
+    color: var(--green);
+    display: flex;
+    align-items: center;
 }
 
 .contact-item-label {
@@ -1010,7 +1058,37 @@ section {
     min-height: 110px;
 }
 
-/* ══════════ FOOTER ══════════ */
+/* form status messages */
+.form-status {
+    padding: .75rem 1rem;
+    border-radius: 3px;
+    font-size: .85rem;
+    letter-spacing: .04em;
+    display: none;
+}
+
+.form-status.sending {
+    display: block;
+    background: rgba(0, 230, 118, .08);
+    border: 1px solid rgba(0, 230, 118, .25);
+    color: var(--green);
+}
+
+.form-status.success {
+    display: block;
+    background: rgba(0, 230, 118, .1);
+    border: 1px solid rgba(0, 230, 118, .35);
+    color: var(--green);
+}
+
+.form-status.error {
+    display: block;
+    background: rgba(255, 80, 80, .08);
+    border: 1px solid rgba(255, 80, 80, .3);
+    color: #ff6b6b;
+}
+
+/* ════════ FOOTER ════════ */
 footer {
     position: relative;
     z-index: 1;
@@ -1055,7 +1133,7 @@ footer {
     letter-spacing: .1em;
 }
 
-/* REVEAL */
+/* ════════ REVEAL ════════ */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -1067,9 +1145,9 @@ footer {
     transform: translateY(0);
 }
 
-/* ══════════════════════════
-     MODAL
-  ══════════════════════════ */
+/* ════════════════════════════════
+   MODAL
+════════════════════════════════ */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -1102,7 +1180,7 @@ footer {
     border: 1px solid var(--border);
     border-radius: 6px;
     width: 100%;
-    max-width: 680px;
+    max-width: 700px;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
@@ -1323,11 +1401,12 @@ footer {
     margin-bottom: 1rem;
 }
 
-.prefill-tag span {
+.prefill-tag span.dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: var(--green);
+    flex-shrink: 0;
 }
 
 .modal-products-select {
@@ -1404,9 +1483,14 @@ footer {
 }
 
 .success-icon {
-    font-size: 3.5rem;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
     filter: drop-shadow(0 0 20px rgba(0, 230, 118, .6));
     animation: popIn .4s cubic-bezier(.22, .68, 0, 1.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes popIn {
@@ -1429,11 +1513,37 @@ footer {
 .success-msg {
     color: var(--mid);
     font-size: .95rem;
-    max-width: 340px;
+    max-width: 360px;
     line-height: 1.6;
 }
 
-/* ══════════ RESPONSIVE ══════════ */
+/* ════════════════════════════════
+   EMAILJS CONFIG NOTICE BANNER
+════════════════════════════════ */
+.config-banner {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 999;
+    background: rgba(255, 213, 79, .12);
+    border: 1px solid rgba(255, 213, 79, .4);
+    border-radius: 4px;
+    padding: .7rem 1rem;
+    font-size: .72rem;
+    color: var(--gold);
+    letter-spacing: .06em;
+    max-width: 320px;
+    line-height: 1.5;
+    display: none;
+}
+
+.config-banner.show {
+    display: block;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
 @media(min-width:1440px) {
     nav {
         padding: 1.2rem 6rem;
@@ -1528,7 +1638,9 @@ footer {
     }
 
     .hero-badge {
-        font-size: .65rem;
+        font-size: .62rem;
+        letter-spacing: .12em;
+        padding: .35rem .9rem;
     }
 
     .scroll-ind {
@@ -1613,8 +1725,12 @@ footer {
 }
 
 @media(max-width:480px) {
-    .nav-logo {
-        font-size: 1.6rem;
+    .nav-logo-img {
+        height: 42px;
+    }
+
+    .nav-tagline {
+        display: none;
     }
 
     #hero {
@@ -1660,6 +1776,10 @@ footer {
 
     .modal-title {
         font-size: 1.5rem;
+    }
+
+    .modal-products-list {
+        grid-template-columns: 1fr;
     }
 }
 

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>VChem Traders – Inquiry Notification</title>
+</head>
+<body style="margin:0;padding:0;background-color:#030d0a;font-family:Arial,Helvetica,sans-serif;">
+
+<!-- ═══════════════════════════════════════════
+     OUTER WRAPPER
+═══════════════════════════════════════════ -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background-color:#030d0a;padding:30px 0;">
+  <tr>
+    <td align="center">
+
+      <!-- ══ INNER CARD ══ -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0"
+             style="max-width:640px;background:#041510;border-radius:8px;
+                    overflow:hidden;border:1px solid rgba(0,230,118,0.25);
+                    box-shadow:0 0 40px rgba(0,230,118,0.08);">
+
+        <!-- ══════════ HEADER ══════════ -->
+        <tr>
+          <td style="background:linear-gradient(135deg,#030d0a 0%,#041a10 60%,#052018 100%);
+                     padding:28px 30px;text-align:center;
+                     border-bottom:2px solid #00e676;">
+            <!-- Logo -->
+            <img src="data:image/png;base64,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"
+                 alt="VChem Traders"
+                 width="180"
+                 style="height:64px;width:auto;max-width:180px;
+                        object-fit:contain;display:block;margin:0 auto 14px;">
+            <!-- Tagline pill -->
+            <div style="display:inline-block;background:rgba(0,230,118,0.1);
+                        border:1px solid rgba(0,230,118,0.3);
+                        border-radius:100px;padding:4px 14px;
+                        font-size:11px;letter-spacing:2px;text-transform:uppercase;
+                        color:#00e676;margin-top:4px;">
+              New Customer Inquiry
+            </div>
+          </td>
+        </tr>
+
+        <!-- ══════════ FORM TYPE BANNER ══════════ -->
+        <tr>
+          <td style="background:rgba(0,230,118,0.07);
+                     padding:16px 30px;
+                     border-bottom:1px solid rgba(0,230,118,0.15);">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <p style="margin:0;font-size:11px;letter-spacing:2px;
+                             text-transform:uppercase;color:#80cbc4;">
+                    Form Type
+                  </p>
+                  <h2 style="margin:4px 0 0;font-size:20px;font-weight:700;
+                              color:#ffffff;letter-spacing:0.5px;">
+                    {{form_type}}
+                  </h2>
+                </td>
+                <td align="right" style="vertical-align:middle;">
+                  <div style="background:rgba(0,230,118,0.15);
+                              border:1px solid rgba(0,230,118,0.4);
+                              border-radius:4px;padding:6px 14px;
+                              font-size:11px;letter-spacing:1.5px;
+                              text-transform:uppercase;color:#00e676;
+                              white-space:nowrap;">
+                    vchem.com
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ══════════ CONTACT DETAILS ══════════ -->
+        <tr>
+          <td style="padding:24px 30px 0;">
+            <!-- Section label -->
+            <p style="margin:0 0 12px;font-size:10px;letter-spacing:2.5px;
+                       text-transform:uppercase;color:#ffd54f;
+                       border-left:2px solid #ffd54f;padding-left:8px;">
+              Contact Information
+            </p>
+            <table width="100%" cellpadding="0" cellspacing="0"
+                   style="border-collapse:collapse;">
+              <tr>
+                <td width="36%" style="padding:9px 12px 9px 0;
+                    font-size:13px;color:#80cbc4;font-weight:600;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  Full Name
+                </td>
+                <td style="padding:9px 0;font-size:13px;color:#e0faf0;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  {{from_name}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:9px 12px 9px 0;font-size:13px;
+                    color:#80cbc4;font-weight:600;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  Company
+                </td>
+                <td style="padding:9px 0;font-size:13px;color:#e0faf0;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  {{company}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:9px 12px 9px 0;font-size:13px;
+                    color:#80cbc4;font-weight:600;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  Email
+                </td>
+                <td style="padding:9px 0;font-size:13px;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  <a href="mailto:{{from_email}}"
+                     style="color:#26c6da;text-decoration:none;">
+                    {{from_email}}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:9px 12px 9px 0;font-size:13px;
+                    color:#80cbc4;font-weight:600;">
+                  Phone / WhatsApp
+                </td>
+                <td style="padding:9px 0;font-size:13px;color:#e0faf0;">
+                  <a href="tel:{{from_phone}}"
+                     style="color:#26c6da;text-decoration:none;">
+                    {{from_phone}}
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ══════════ DIVIDER ══════════ -->
+        <tr>
+          <td style="padding:20px 30px 0;">
+            <div style="height:1px;background:linear-gradient(to right,
+                        #00e676,rgba(38,198,218,0.4),transparent);"></div>
+          </td>
+        </tr>
+
+        <!-- ══════════ INQUIRY DETAILS ══════════ -->
+        <tr>
+          <td style="padding:20px 30px 0;">
+            <p style="margin:0 0 12px;font-size:10px;letter-spacing:2.5px;
+                       text-transform:uppercase;color:#ffd54f;
+                       border-left:2px solid #ffd54f;padding-left:8px;">
+              Inquiry Details
+            </p>
+            <table width="100%" cellpadding="0" cellspacing="0"
+                   style="border-collapse:collapse;">
+              <tr>
+                <td width="36%" style="padding:9px 12px 9px 0;
+                    font-size:13px;color:#80cbc4;font-weight:600;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  Category
+                </td>
+                <td style="padding:9px 0;font-size:13px;color:#00e676;font-weight:600;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  {{category}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:9px 12px 9px 0;font-size:13px;
+                    color:#80cbc4;font-weight:600;
+                    border-bottom:1px solid rgba(0,230,118,0.1);
+                    vertical-align:top;">
+                  Products of Interest
+                </td>
+                <td style="padding:9px 0;font-size:13px;color:#e0faf0;
+                    border-bottom:1px solid rgba(0,230,118,0.1);
+                    line-height:1.6;">
+                  {{products}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:9px 12px 9px 0;font-size:13px;
+                    color:#80cbc4;font-weight:600;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  Application / Industry
+                </td>
+                <td style="padding:9px 0;font-size:13px;color:#e0faf0;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  {{industry}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:9px 12px 9px 0;font-size:13px;
+                    color:#80cbc4;font-weight:600;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  Quantity Required
+                </td>
+                <td style="padding:9px 0;font-size:13px;color:#e0faf0;
+                    border-bottom:1px solid rgba(0,230,118,0.1);">
+                  {{quantity}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:9px 12px 9px 0;font-size:13px;
+                    color:#80cbc4;font-weight:600;">
+                  Required By
+                </td>
+                <td style="padding:9px 0;font-size:13px;color:#e0faf0;">
+                  {{required_by}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ══════════ NOTES ══════════ -->
+        <tr>
+          <td style="padding:20px 30px 0;">
+            <p style="margin:0 0 10px;font-size:10px;letter-spacing:2.5px;
+                       text-transform:uppercase;color:#ffd54f;
+                       border-left:2px solid #ffd54f;padding-left:8px;">
+              Additional Notes
+            </p>
+            <div style="background:rgba(0,230,118,0.05);
+                        border:1px solid rgba(0,230,118,0.18);
+                        border-left:3px solid #00e676;
+                        border-radius:4px;padding:14px 16px;
+                        font-size:13px;color:#80cbc4;line-height:1.7;">
+              {{notes}}
+            </div>
+          </td>
+        </tr>
+
+        <!-- ══════════ CTA BUTTONS ══════════ -->
+        <tr>
+          <td style="padding:28px 30px 24px;text-align:center;">
+            <table cellpadding="0" cellspacing="0" style="margin:0 auto;">
+              <tr>
+                <!-- Reply Email -->
+                <td style="padding:0 6px;">
+                  <a href="mailto:{{from_email}}?subject=Re: VChem Inquiry – {{category}}"
+                     style="display:inline-block;
+                            background:linear-gradient(135deg,#00a854,#00e676);
+                            color:#ffffff;padding:12px 22px;
+                            text-decoration:none;border-radius:3px;
+                            font-size:13px;font-weight:700;
+                            letter-spacing:1px;text-transform:uppercase;">
+                    ✉ Reply to Customer
+                  </a>
+                </td>
+                <!-- WhatsApp -->
+                <td style="padding:0 6px;">
+                  <a href="https://wa.me/{{from_phone}}"
+                     style="display:inline-block;
+                            background:transparent;
+                            color:#26c6da;padding:11px 22px;
+                            text-decoration:none;border-radius:3px;
+                            font-size:13px;font-weight:700;
+                            letter-spacing:1px;text-transform:uppercase;
+                            border:1px solid rgba(38,198,218,0.45);">
+                    📱 WhatsApp
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ══════════ DIVIDER ══════════ -->
+        <tr>
+          <td style="padding:0 30px;">
+            <div style="height:1px;background:rgba(0,230,118,0.15);"></div>
+          </td>
+        </tr>
+
+        <!-- ══════════ QUICK INFO ROW ══════════ -->
+        <tr>
+          <td style="padding:16px 30px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="center" style="padding:0 8px;">
+                  <p style="margin:0;font-size:10px;color:#80cbc4;
+                             letter-spacing:1px;text-transform:uppercase;">
+                    Phone
+                  </p>
+                  <p style="margin:4px 0 0;font-size:13px;font-weight:700;color:#00e676;">
+                    +966 548 130 415
+                  </p>
+                </td>
+                <td style="width:1px;background:rgba(0,230,118,0.15);"></td>
+                <td align="center" style="padding:0 8px;">
+                  <p style="margin:0;font-size:10px;color:#80cbc4;
+                             letter-spacing:1px;text-transform:uppercase;">
+                    Website
+                  </p>
+                  <p style="margin:4px 0 0;font-size:13px;font-weight:700;color:#26c6da;">
+                    www.vchem.com
+                  </p>
+                </td>
+                <td style="width:1px;background:rgba(0,230,118,0.15);"></td>
+                <td align="center" style="padding:0 8px;">
+                  <p style="margin:0;font-size:10px;color:#80cbc4;
+                             letter-spacing:1px;text-transform:uppercase;">
+                    Location
+                  </p>
+                  <p style="margin:4px 0 0;font-size:13px;font-weight:700;color:#e0faf0;">
+                    Saudi Arabia
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ══════════ FOOTER ══════════ -->
+        <tr>
+          <td style="background:linear-gradient(135deg,#020a07,#030d0a);
+                     border-top:1px solid rgba(0,230,118,0.2);
+                     padding:18px 30px;text-align:center;">
+            <p style="margin:0;font-size:11px;color:#80cbc4;letter-spacing:0.5px;">
+              © 2025 <strong style="color:#00e676;">VChem Traders</strong>
+              &nbsp;·&nbsp; Premium Oilfield Chemicals &amp; Drilling Fluid Systems
+            </p>
+            <p style="margin:6px 0 0;font-size:10px;color:rgba(128,203,196,0.45);">
+              This email was generated automatically from a form submission on vchem.com
+            </p>
+          </td>
+        </tr>
+
+      </table>
+      <!-- ══ END INNER CARD ══ -->
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
