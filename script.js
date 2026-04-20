@@ -40,7 +40,7 @@ async function sendEmail(params) {
     if (!keysConfigured) {
         // Dev fallback: simulate send
         await new Promise(r => setTimeout(r, 1200));
-        console.log('📧 EmailJS not configured — would have sent:', params);
+        console.log('EmailJS not configured — would have sent:', params);
         return { status: 200, text: 'OK (simulated)' };
     }
     return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
@@ -317,7 +317,7 @@ async function submitModalForm(e) {
     e.preventDefault();
     const submitBtn = document.getElementById('mf-submit');
     submitBtn.disabled = true;
-    setStatus('mf-status', 'sending', '⏳ Sending your inquiry to VChem...');
+    setStatus('mf-status', 'sending', 'Sending your inquiry to VChem...');
 
     const checkedProds = [...document.querySelectorAll('#modal-products-checkboxes input:checked')]
         .map(i => i.value).join(', ') || 'Not specified';
@@ -347,7 +347,7 @@ async function submitModalForm(e) {
         document.getElementById('modal-box').scrollTop = 0;
     } catch (err) {
         console.error('EmailJS error:', err);
-        setStatus('mf-status', 'error', '❌ Failed to send. Please email info@vchem.com or call +966 548 130 415.');
+        setStatus('mf-status', 'error', 'Failed to send. Please email info@vchem.com or call +966 548 130 415.');
         submitBtn.disabled = false;
     }
 }
@@ -364,13 +364,13 @@ async function submitContactForm() {
     const message = document.getElementById('cf-message').value.trim();
 
     if (!name || !company || !email) {
-        setStatus('cf-status', 'error', '⚠️ Please fill in Name, Company and Email before sending.');
+        setStatus('cf-status', 'error', 'Please fill in Name, Company and Email before sending.');
         return;
     }
 
     const btn = document.getElementById('cf-submit');
     btn.disabled = true;
-    setStatus('cf-status', 'sending', '⏳ Sending your message to VChem...');
+    setStatus('cf-status', 'sending', 'Sending your message to VChem...');
 
     const params = {
         subject: `VChem General Inquiry — ${cat || 'General'} — ${name}`,
@@ -400,7 +400,7 @@ async function submitContactForm() {
         setTimeout(() => { btn.textContent = 'Send Inquiry →'; btn.disabled = false; }, 4000);
     } catch (err) {
         console.error('EmailJS error:', err);
-        setStatus('cf-status', 'error', '❌ Send failed. Please email info@vchem.com or call +966 548 130 415.');
+        setStatus('cf-status', 'error', 'Send failed. Please email info@vchem.com or call +966 548 130 415.');
         btn.disabled = false;
     }
 }
@@ -427,3 +427,65 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 
 setTimeout(() => document.querySelectorAll('.reveal').forEach(el => obs.observe(el)), 100);
+
+/* ─── SERVICES TAB SWITCHER ─── */
+function showServicePanel(index, btn) {
+    // Hide all panels
+    document.querySelectorAll('.services-panel').forEach(p => p.classList.remove('active'));
+    // Deactivate all tabs
+    document.querySelectorAll('.svc-tab').forEach(t => t.classList.remove('active'));
+    // Activate selected
+    document.getElementById('svc-panel-' + index).classList.add('active');
+    btn.classList.add('active');
+}
+
+/* ─── OPEN SERVICE CARD MODAL ─── */
+function openSvcModal(serviceName, cardTitle, items) {
+    currentType = 'svc';
+    currentIdx = -1;
+
+    // Icon: wrench/settings SVG for services
+    const icon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>`;
+
+    document.getElementById('modal-icon').innerHTML = icon;
+    document.getElementById('modal-label').textContent = serviceName;
+    document.getElementById('modal-title').textContent = cardTitle;
+    document.getElementById('modal-prefill-text').textContent = cardTitle + ' — VChem Service Inquiry';
+
+    // Show service items in the products list area
+    document.getElementById('modal-products-list').innerHTML = items.map(it =>
+        `<div class="modal-product-item">${it}</div>`
+    ).join('');
+
+    // Checkboxes for items so user can select which they're interested in
+    document.getElementById('modal-products-checkboxes').innerHTML = items.map((it, i) =>
+        `<label class="prod-check-label"><input type="checkbox" value="${it}" ${i < 3 ? 'checked' : ''}> ${it}</label>`
+    ).join('');
+
+    // Pre-set industry dropdown to the service name if possible
+    const ind = document.getElementById('mf-industry');
+    let matched = false;
+    [...ind.options].forEach(o => {
+        if (o.value.toLowerCase().includes(serviceName.split(' ')[0].toLowerCase())) {
+            o.selected = true; matched = true;
+        }
+    });
+    if (!matched) {
+        // Add a temporary option for this service
+        let existing = [...ind.options].find(o => o.value === serviceName);
+        if (!existing) {
+            const o = document.createElement('option');
+            o.value = serviceName; o.textContent = serviceName;
+            o.setAttribute('data-temp', '1');
+            ind.insertBefore(o, ind.options[1]);
+        }
+        ind.value = serviceName;
+    }
+
+    resetModal(); openModal();
+}
+
+// Patch submitModalForm to handle 'svc' type
+const _origSubmit = submitModalForm;
+// Override category/subject logic for svc type inside submitModalForm
+// (done inline: submitModalForm already reads currentType, we just need it to handle 'svc')

@@ -38,6 +38,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#applications">Applications</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
@@ -52,6 +53,7 @@
       alt="VChem Traders" style="height:60px;width:auto;margin-bottom:1rem;object-fit:contain;">
     <a href="#about" onclick="closeMenu()">About</a>
     <a href="#products" onclick="closeMenu()">Products</a>
+    <a href="#services" onclick="closeMenu()">Services</a>
     <a href="#applications" onclick="closeMenu()">Applications</a>
     <a href="#contact" onclick="closeMenu()" style="color:var(--green)">Contact</a>
   </div>
@@ -66,7 +68,7 @@
       <span class="line1">VChem</span>
       <span class="line2">OILFIELD CHEMICALS</span>
     </h1>
-    <p class="hero-sub"><strong>VChem Traders</strong> — specialist manufacturer and supplier of premium oilfield
+    <p class="hero-sub"><strong>VChem</strong> — specialist manufacturer and supplier of premium oilfield
       chemicals and drilling fluid systems engineered for the most demanding well environments across the GCC.</p>
     <div class="hero-actions">
       <a href="#products" class="btn-primary">Explore Products</a>
@@ -194,6 +196,488 @@
         team.</p>
     </div>
     <div class="categories-grid" id="cat-grid"></div>
+  </section>
+
+
+  <!-- ══════════ SERVICES ══════════ -->
+  <section id="services">
+    <div class="services-header reveal">
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Our Services</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">VChem delivers end-to-end specialised services across five core sectors — from environmental compliance to precision oilfield chemistry and technical design.</p>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="services-tabs">
+      <button class="svc-tab active" onclick="showServicePanel(0, this)">
+        <span class="svc-tab-num">01</span> Environment
+      </button>
+      <button class="svc-tab" onclick="showServicePanel(1, this)">
+        <span class="svc-tab-num">02</span> Industrial
+      </button>
+      <button class="svc-tab" onclick="showServicePanel(2, this)">
+        <span class="svc-tab-num">03</span> Health Care
+      </button>
+      <button class="svc-tab" onclick="showServicePanel(3, this)">
+        <span class="svc-tab-num">04</span> Oilfield
+      </button>
+      <button class="svc-tab" onclick="showServicePanel(4, this)">
+        <span class="svc-tab-num">05</span> Technical & Design
+      </button>
+    </div>
+
+    <!-- Panel 0: Environment Services -->
+    <div class="services-panel active" id="svc-panel-0">
+      <div class="services-panel-header">
+        <div class="svc-panel-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.97 0 9-4.03 9-9H3c0 4.97 4.03 9 9 9z"/><path d="M12 2C6.48 2 2 6.48 2 12h20C22 6.48 17.52 2 12 2z"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+        </div>
+        <div class="svc-panel-info">
+          <h3>Environment Services</h3>
+          <p>Comprehensive environmental solutions covering water treatment, waste management, contamination control, and regulatory compliance. We help industries operate sustainably and meet all environmental standards across the GCC.</p>
+        </div>
+      </div>
+      <div class="svc-cards-grid">
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Environment Services', 'Water Treatment', ['Industrial wastewater treatment chemicals', 'Desalination antiscalants & biocides', 'Cooling tower water management', 'Effluent neutralisation & pH control', 'Reverse osmosis membrane protection', 'Sludge dewatering & conditioning'])">
+          <div class="svc-card-badge">01</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+          <div class="svc-card-title">Water Treatment</div>
+          <ul class="svc-card-items">
+            <li>Industrial wastewater treatment chemicals</li>
+            <li>Desalination antiscalants & biocides</li>
+            <li>Cooling tower water management</li>
+            <li>Effluent neutralisation & pH control</li>
+            <li>Reverse osmosis membrane protection</li>
+            <li>Sludge dewatering & conditioning</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Environment Services', 'Waste Management', ['Hazardous waste neutralisation', 'Chemical waste disposal solutions', 'Industrial solvent recovery', 'Solid waste treatment compounds', 'Landfill leachate management'])">
+          <div class="svc-card-badge">02</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <div class="svc-card-title">Waste Management</div>
+          <ul class="svc-card-items">
+            <li>Hazardous waste neutralisation</li>
+            <li>Chemical waste disposal solutions</li>
+            <li>Industrial solvent recovery</li>
+            <li>Solid waste treatment compounds</li>
+            <li>Landfill leachate management</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Environment Services', 'Soil Remediation', ['Hydrocarbon-contaminated soil treatment', 'Bioremediation accelerators', 'Heavy metal immobilisation agents', 'Solidification & stabilisation compounds', 'Brownfield site decontamination', 'In-situ chemical oxidation (ISCO)'])">
+          <div class="svc-card-badge">03</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <div class="svc-card-title">Soil Remediation</div>
+          <ul class="svc-card-items">
+            <li>Hydrocarbon-contaminated soil treatment</li>
+            <li>Bioremediation accelerators</li>
+            <li>Heavy metal immobilisation agents</li>
+            <li>Solidification & stabilisation compounds</li>
+            <li>Brownfield site decontamination</li>
+            <li>In-situ chemical oxidation (ISCO)</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Environment Services', 'Air Quality Control', ['Scrubber chemicals for SOx/NOx', 'VOC suppression compounds', 'Dust suppression & binding agents', 'Odour control for industrial facilities', 'Stack emission treatment chemicals'])">
+          <div class="svc-card-badge">04</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="svc-card-title">Air Quality Control</div>
+          <ul class="svc-card-items">
+            <li>Scrubber chemicals for SOx/NOx</li>
+            <li>VOC suppression compounds</li>
+            <li>Dust suppression & binding agents</li>
+            <li>Odour control for industrial facilities</li>
+            <li>Stack emission treatment chemicals</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Environment Services', 'Environmental Compliance', ['MWAN & SASO-compliant formulations', 'Environmental impact assessment support', 'Regulatory documentation & SDS sheets', 'Third-party lab testing coordination', 'Spill response chemical kits', 'ISO 14001 compliance chemicals'])">
+          <div class="svc-card-badge">05</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="svc-card-title">Environmental Compliance</div>
+          <ul class="svc-card-items">
+            <li>MWAN & SASO-compliant formulations</li>
+            <li>Environmental impact assessment support</li>
+            <li>Regulatory documentation & SDS sheets</li>
+            <li>Third-party lab testing coordination</li>
+            <li>Spill response chemical kits</li>
+            <li>ISO 14001 compliance chemicals</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Environment Services', 'Marine & Coastal Protection', ['Oil spill dispersants & absorbents', 'Ballast water treatment chemicals', 'Antifouling & hull treatment compounds', 'Harbour water quality management', 'Coral-safe marine cleaning agents'])">
+          <div class="svc-card-badge">06</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="svc-card-title">Marine & Coastal Protection</div>
+          <ul class="svc-card-items">
+            <li>Oil spill dispersants & absorbents</li>
+            <li>Ballast water treatment chemicals</li>
+            <li>Antifouling & hull treatment compounds</li>
+            <li>Harbour water quality management</li>
+            <li>Coral-safe marine cleaning agents</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 1: Industrial Services -->
+    <div class="services-panel" id="svc-panel-1">
+      <div class="services-panel-header">
+        <div class="svc-panel-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="svc-panel-info">
+          <h3>Industrial Services</h3>
+          <p>High-performance chemical solutions for manufacturing, processing, and heavy industry. VChem supplies specialty chemicals that optimise production, protect equipment, and ensure operational safety across industrial facilities.</p>
+        </div>
+      </div>
+      <div class="svc-cards-grid">
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Industrial Services', 'Process Chemicals', ['Catalysts & reaction accelerators', 'Industrial solvents & degreasers', 'pH adjustment & buffering agents', 'Flocculants & coagulants', 'Anti-foam & defoaming agents', 'Emulsifiers & dispersants'])">
+          <div class="svc-card-badge">01</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+          <div class="svc-card-title">Process Chemicals</div>
+          <ul class="svc-card-items">
+            <li>Catalysts & reaction accelerators</li>
+            <li>Industrial solvents & degreasers</li>
+            <li>pH adjustment & buffering agents</li>
+            <li>Flocculants & coagulants</li>
+            <li>Anti-foam & defoaming agents</li>
+            <li>Emulsifiers & dispersants</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Industrial Services', 'Corrosion Protection', ['Corrosion inhibitors for pipelines', 'Passivation & surface treatment', 'Rust preventives & VCI products', 'Metal surface cleaners & pickling', 'Protective coatings & primers', 'Cathodic protection compounds'])">
+          <div class="svc-card-badge">02</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="svc-card-title">Corrosion Protection</div>
+          <ul class="svc-card-items">
+            <li>Corrosion inhibitors for pipelines</li>
+            <li>Passivation & surface treatment</li>
+            <li>Rust preventives & VCI products</li>
+            <li>Metal surface cleaners & pickling</li>
+            <li>Protective coatings & primers</li>
+            <li>Cathodic protection compounds</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Industrial Services', 'Lubrication & Maintenance', ['Industrial lubricants & greases', 'Gear & bearing protection fluids', 'Hydraulic system additives', 'Metalworking cutting fluids', 'Compressor & turbine lubricants'])">
+          <div class="svc-card-badge">03</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="svc-card-title">Lubrication & Maintenance</div>
+          <ul class="svc-card-items">
+            <li>Industrial lubricants & greases</li>
+            <li>Gear & bearing protection fluids</li>
+            <li>Hydraulic system additives</li>
+            <li>Metalworking cutting fluids</li>
+            <li>Compressor & turbine lubricants</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Industrial Services', 'Cleaning & Hygiene', ['Industrial degreasers & strippers', 'CIP (clean-in-place) chemicals', 'Alkaline & acidic cleaners', 'Equipment descaling agents', 'Sanitisers & disinfectants (industrial)', 'Textile & laundry chemicals'])">
+          <div class="svc-card-badge">04</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12L4 6M12 12l8-6"/><path d="M4 6v12l8 4 8-4V6"/></svg></div>
+          <div class="svc-card-title">Cleaning & Hygiene</div>
+          <ul class="svc-card-items">
+            <li>Industrial degreasers & strippers</li>
+            <li>CIP (clean-in-place) chemicals</li>
+            <li>Alkaline & acidic cleaners</li>
+            <li>Equipment descaling agents</li>
+            <li>Sanitisers & disinfectants (industrial)</li>
+            <li>Textile & laundry chemicals</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Industrial Services', 'Specialty Polymers', ['Scale inhibitor polymers', 'Polyacrylamide flocculants', 'Resin binders & adhesives', 'Coating polymers & film formers', 'Polymer drag reducers'])">
+          <div class="svc-card-badge">05</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+          <div class="svc-card-title">Specialty Polymers</div>
+          <ul class="svc-card-items">
+            <li>Scale inhibitor polymers</li>
+            <li>Polyacrylamide flocculants</li>
+            <li>Resin binders & adhesives</li>
+            <li>Coating polymers & film formers</li>
+            <li>Polymer drag reducers</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Industrial Services', 'Boiler & Steam Systems', ['Boiler feed water treatment', 'Scale & deposit inhibitors', 'Oxygen scavengers', 'Alkalinity builders', 'Condensate line protection', 'Boiler system cleaners'])">
+          <div class="svc-card-badge">06</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div class="svc-card-title">Boiler & Steam Systems</div>
+          <ul class="svc-card-items">
+            <li>Boiler feed water treatment</li>
+            <li>Scale & deposit inhibitors</li>
+            <li>Oxygen scavengers</li>
+            <li>Alkalinity builders</li>
+            <li>Condensate line protection</li>
+            <li>Boiler system cleaners</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Health Care Services -->
+    <div class="services-panel" id="svc-panel-2">
+      <div class="services-panel-header">
+        <div class="svc-panel-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="svc-panel-info">
+          <h3>Health Care Services</h3>
+          <p>Pharmaceutical-grade and healthcare chemical supplies for hospitals, clinics, laboratories, and pharmaceutical manufacturers. VChem meets stringent healthcare compliance standards to deliver safe, effective solutions.</p>
+        </div>
+      </div>
+      <div class="svc-cards-grid">
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Health Care Services', 'Disinfection & Sterilisation', ['Hospital-grade disinfectants', 'Surgical instrument sterilants', 'Surface & air sanitisers', 'Alcohol-based hand rub formulations', 'Peracetic acid sterilants', 'Chlorine-based disinfection solutions'])">
+          <div class="svc-card-badge">01</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="svc-card-title">Disinfection & Sterilisation</div>
+          <ul class="svc-card-items">
+            <li>Hospital-grade disinfectants</li>
+            <li>Surgical instrument sterilants</li>
+            <li>Surface & air sanitisers</li>
+            <li>Alcohol-based hand rub formulations</li>
+            <li>Peracetic acid sterilants</li>
+            <li>Chlorine-based disinfection solutions</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Health Care Services', 'Laboratory Chemicals', ['Analytical-grade reagents & solvents', 'Culture media & staining reagents', 'Diagnostic assay chemicals', 'Chromatography solvents (HPLC grade)', 'Buffer solutions & standards'])">
+          <div class="svc-card-badge">02</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <div class="svc-card-title">Laboratory Chemicals</div>
+          <ul class="svc-card-items">
+            <li>Analytical-grade reagents & solvents</li>
+            <li>Culture media & staining reagents</li>
+            <li>Diagnostic assay chemicals</li>
+            <li>Chromatography solvents (HPLC grade)</li>
+            <li>Buffer solutions & standards</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Health Care Services', 'Pharmaceutical Excipients', ['Binders, fillers & disintegrants', 'Coating polymers & film formers', 'Lubricants & glidants (pharma-grade)', 'Solubilisers & surfactants', 'Preservatives & stabilisers', 'Sweeteners & flavour masking agents'])">
+          <div class="svc-card-badge">03</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
+          <div class="svc-card-title">Pharmaceutical Excipients</div>
+          <ul class="svc-card-items">
+            <li>Binders, fillers & disintegrants</li>
+            <li>Coating polymers & film formers</li>
+            <li>Lubricants & glidants (pharma-grade)</li>
+            <li>Solubilisers & surfactants</li>
+            <li>Preservatives & stabilisers</li>
+            <li>Sweeteners & flavour masking agents</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Health Care Services', 'Medical Facility Cleaning', ['Endoscope & instrument disinfectants', 'Operating theatre cleaning agents', 'Non-toxic ward surface cleaners', 'Laundry disinfection chemicals', 'Drain & waste system maintenance'])">
+          <div class="svc-card-badge">04</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="svc-card-title">Medical Facility Cleaning</div>
+          <ul class="svc-card-items">
+            <li>Endoscope & instrument disinfectants</li>
+            <li>Operating theatre cleaning agents</li>
+            <li>Non-toxic ward surface cleaners</li>
+            <li>Laundry disinfection chemicals</li>
+            <li>Drain & waste system maintenance</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Health Care Services', 'Water Purification (Healthcare)', ['Water for injection (WFI) chemicals', 'Dialysis water treatment', 'Autoclave water additives', 'Pharmaceutical-grade DI water systems', 'Endotoxin removal treatment', 'Purified water system sanitisers'])">
+          <div class="svc-card-badge">05</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div class="svc-card-title">Water Purification (Healthcare)</div>
+          <ul class="svc-card-items">
+            <li>Water for injection (WFI) chemicals</li>
+            <li>Dialysis water treatment</li>
+            <li>Autoclave water additives</li>
+            <li>Pharmaceutical-grade DI water systems</li>
+            <li>Endotoxin removal treatment</li>
+            <li>Purified water system sanitisers</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Health Care Services', 'Infection Control', ['Broad-spectrum antimicrobial agents', 'Fogging & fumigation chemicals', 'Barrier & isolation ward chemicals', 'Biocidal wipes & sprays', 'Hand hygiene product supply'])">
+          <div class="svc-card-badge">06</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="svc-card-title">Infection Control</div>
+          <ul class="svc-card-items">
+            <li>Broad-spectrum antimicrobial agents</li>
+            <li>Fogging & fumigation chemicals</li>
+            <li>Barrier & isolation ward chemicals</li>
+            <li>Biocidal wipes & sprays</li>
+            <li>Hand hygiene product supply</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Oilfield Services -->
+    <div class="services-panel" id="svc-panel-3">
+      <div class="services-panel-header">
+        <div class="svc-panel-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="svc-panel-info">
+          <h3>Oilfield Services</h3>
+          <p>VChem's core expertise — precision-engineered drilling fluids, production chemicals, and reservoir enhancement compounds. Trusted by upstream operators across the GCC for performance, reliability, and well integrity.</p>
+        </div>
+      </div>
+      <div class="svc-cards-grid">
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Oilfield Services', 'Drilling Fluid Chemicals', ['Water-based drilling fluid additives', 'Oil-based mud (OBM) formulations', 'Synthetic-based mud components', 'Viscosifiers (PAC, PHPA, XC polymer)', 'Fluid loss control agents', 'Shale inhibitors & stabilisers'])">
+          <div class="svc-card-badge">01</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+          <div class="svc-card-title">Drilling Fluid Chemicals</div>
+          <ul class="svc-card-items">
+            <li>Water-based drilling fluid additives</li>
+            <li>Oil-based mud (OBM) formulations</li>
+            <li>Synthetic-based mud components</li>
+            <li>Viscosifiers (PAC, PHPA, XC polymer)</li>
+            <li>Fluid loss control agents</li>
+            <li>Shale inhibitors & stabilisers</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Oilfield Services', 'Production Chemicals', ['Scale inhibitors (sulphate & carbonate)', 'Corrosion inhibitors for pipelines', 'H₂S scavengers & gas sweetening', 'Paraffin & wax dispersants', 'Asphaltene inhibitors', 'Demulsifiers & emulsion breakers'])">
+          <div class="svc-card-badge">02</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12L4 6M12 12l8-6"/><path d="M4 6v12l8 4 8-4V6"/></svg></div>
+          <div class="svc-card-title">Production Chemicals</div>
+          <ul class="svc-card-items">
+            <li>Scale inhibitors (sulphate & carbonate)</li>
+            <li>Corrosion inhibitors for pipelines</li>
+            <li>H₂S scavengers & gas sweetening</li>
+            <li>Paraffin & wax dispersants</li>
+            <li>Asphaltene inhibitors</li>
+            <li>Demulsifiers & emulsion breakers</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Oilfield Services', 'Cementing Chemicals', ['Cement retarders & accelerators', 'Fluid loss additives for cementing', 'Dispersants & friction reducers', 'Gas migration control agents', 'Lightweight & heavyweight extenders', 'Anti-foam agents for cement slurries'])">
+          <div class="svc-card-badge">03</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="svc-card-title">Cementing Chemicals</div>
+          <ul class="svc-card-items">
+            <li>Cement retarders & accelerators</li>
+            <li>Fluid loss additives for cementing</li>
+            <li>Dispersants & friction reducers</li>
+            <li>Gas migration control agents</li>
+            <li>Lightweight & heavyweight extenders</li>
+            <li>Anti-foam agents for cement slurries</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Oilfield Services', 'Stimulation & Workover', ['Acidising systems (HCl, HF blends)', 'Fracturing fluid additives', 'Diverter & bridging agents', 'Iron control & sequestration', 'Clay stabilisation chemicals'])">
+          <div class="svc-card-badge">04</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="svc-card-title">Stimulation & Workover</div>
+          <ul class="svc-card-items">
+            <li>Acidising systems (HCl, HF blends)</li>
+            <li>Fracturing fluid additives</li>
+            <li>Diverter & bridging agents</li>
+            <li>Iron control & sequestration</li>
+            <li>Clay stabilisation chemicals</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Oilfield Services', 'Enhanced Oil Recovery', ['Polymer flooding chemicals', 'Surfactant EOR formulations', 'Alkaline-surfactant-polymer (ASP)', 'CO₂ & foam EOR additives', 'Microbial EOR nutrients', 'Wettability alteration agents'])">
+          <div class="svc-card-badge">05</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <div class="svc-card-title">Enhanced Oil Recovery</div>
+          <ul class="svc-card-items">
+            <li>Polymer flooding chemicals</li>
+            <li>Surfactant EOR formulations</li>
+            <li>Alkaline-surfactant-polymer (ASP)</li>
+            <li>CO₂ & foam EOR additives</li>
+            <li>Microbial EOR nutrients</li>
+            <li>Wettability alteration agents</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Oilfield Services', 'Completion Fluids', ['Brine-based completion fluids', 'Packer fluids & kill fluids', 'Well cleanup & displacement fluids', 'Gravel pack chemicals', 'Perforating fluid additives'])">
+          <div class="svc-card-badge">06</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="svc-card-title">Completion Fluids</div>
+          <ul class="svc-card-items">
+            <li>Brine-based completion fluids</li>
+            <li>Packer fluids & kill fluids</li>
+            <li>Well cleanup & displacement fluids</li>
+            <li>Gravel pack chemicals</li>
+            <li>Perforating fluid additives</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4: Technical & Design Services -->
+    <div class="services-panel" id="svc-panel-4">
+      <div class="services-panel-header">
+        <div class="svc-panel-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="svc-panel-info">
+          <h3>Technical & Design Services</h3>
+          <p>From custom chemical formulation to on-site technical consultation, VChem's engineering and design team partners with clients to develop optimised solutions, manage complex projects, and provide full lifecycle technical support.</p>
+        </div>
+      </div>
+      <div class="svc-cards-grid">
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Technical & Design Services', 'Custom Formulation R&D', ['Bespoke chemical formula development', 'Performance testing & field trials', 'Stability & compatibility studies', 'Formulation optimisation for conditions', 'Scale-up from lab to production', 'Proprietary blend confidentiality'])">
+          <div class="svc-card-badge">01</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <div class="svc-card-title">Custom Formulation R&D</div>
+          <ul class="svc-card-items">
+            <li>Bespoke chemical formula development</li>
+            <li>Performance testing & field trials</li>
+            <li>Stability & compatibility studies</li>
+            <li>Formulation optimisation for conditions</li>
+            <li>Scale-up from lab to production</li>
+            <li>Proprietary blend confidentiality</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Technical & Design Services', 'Technical Consultation', ['On-site chemical audits & reviews', 'Root cause analysis for chemical failures', 'Process optimisation recommendations', 'HAZOP & chemical risk assessments', 'Chemical selection & vendor evaluation'])">
+          <div class="svc-card-badge">02</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="svc-card-title">Technical Consultation</div>
+          <ul class="svc-card-items">
+            <li>On-site chemical audits & reviews</li>
+            <li>Root cause analysis for chemical failures</li>
+            <li>Process optimisation recommendations</li>
+            <li>HAZOP & chemical risk assessments</li>
+            <li>Chemical selection & vendor evaluation</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Technical & Design Services', 'Process Plant Design', ['Chemical dosing system design', 'Injection point engineering', 'Chemical storage & handling layout', 'P&ID diagram preparation', 'Pump & metering system selection', 'Bulk chemical unloading facilities'])">
+          <div class="svc-card-badge">03</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+          <div class="svc-card-title">Process Plant Design</div>
+          <ul class="svc-card-items">
+            <li>Chemical dosing system design</li>
+            <li>Injection point engineering</li>
+            <li>Chemical storage & handling layout</li>
+            <li>P&ID diagram preparation</li>
+            <li>Pump & metering system selection</li>
+            <li>Bulk chemical unloading facilities</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Technical & Design Services', 'Laboratory & Testing', ['Jar testing & compatibility screening', 'Corrosion coupon analysis', 'Microbiological monitoring', 'Third-party analytical coordination', 'Chemical performance benchmarking'])">
+          <div class="svc-card-badge">04</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <div class="svc-card-title">Laboratory & Testing</div>
+          <ul class="svc-card-items">
+            <li>Jar testing & compatibility screening</li>
+            <li>Corrosion coupon analysis</li>
+            <li>Microbiological monitoring</li>
+            <li>Third-party analytical coordination</li>
+            <li>Chemical performance benchmarking</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Technical & Design Services', 'Training & Knowledge Transfer', ['Chemical handling & safety training', 'Drilling fluid engineering workshops', 'Water treatment operator training', 'Emergency chemical response drills', 'SDS & regulatory compliance guidance', 'Customised on-site technical seminars'])">
+          <div class="svc-card-badge">05</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div class="svc-card-title">Training & Knowledge Transfer</div>
+          <ul class="svc-card-items">
+            <li>Chemical handling & safety training</li>
+            <li>Drilling fluid engineering workshops</li>
+            <li>Water treatment operator training</li>
+            <li>Emergency chemical response drills</li>
+            <li>SDS & regulatory compliance guidance</li>
+            <li>Customised on-site technical seminars</li>
+          </ul>
+        </div>
+        <div class="svc-card" style="cursor:pointer" onclick="openSvcModal('Technical & Design Services', 'Supply Chain & Logistics', ['Chemical procurement & sourcing', 'Vendor qualification & approval', 'Import/export documentation', 'Hazmat packaging & labelling', 'GCC customs & regulatory clearance'])">
+          <div class="svc-card-badge">06</div>
+          <div class="svc-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <div class="svc-card-title">Supply Chain & Logistics</div>
+          <ul class="svc-card-items">
+            <li>Chemical procurement & sourcing</li>
+            <li>Vendor qualification & approval</li>
+            <li>Import/export documentation</li>
+            <li>Hazmat packaging & labelling</li>
+            <li>GCC customs & regulatory clearance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ══════════ APPLICATIONS ══════════ -->
